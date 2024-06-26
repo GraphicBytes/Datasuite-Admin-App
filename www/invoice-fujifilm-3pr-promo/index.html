@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit an Invoice | Fujifilm Cloud</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="fav.ico"
+      sizes="16x16"
+      data-rh="true"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://renderer.fujifilm-cloud.com/renderer"></script>
+    <style>
+      body {
+        background: #f9f9f9;
+      }
+      main {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 300ms ease-in;
+      }
+      #form-container-BKJa7xzuZb {
+        max-width: 800px;
+      }
+      .add-coding,
+      .advertising-allocation,
+      .trade-show-allocation,
+      .trade-promo-allocation,
+      .sales-expense-allocation,
+      .enter-project-allocation {
+        visibility: hidden;
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="form-container-BKJa7xzuZb"></div>
+    </main>
+    <script>
+      const renderer = new FormRenderer({
+        formId: "BKJa7xzuZb",
+        containerId: "form-container-BKJa7xzuZb",
+        showFormOnSubmit: false,
+        platform: "fujifilm",
+      });
+      renderer.renderForm();
+
+      // Function to show/hide add-coding based on radio button selection
+      function toggleAddCoding() {
+        $('input[name="radiobuttongroup-YPgY3"]').change(function () {
+          if ($(this).val() === "yes") {
+            $(".add-coding").css({ visibility: "visible", height: "auto" });
+
+            const value = $("#dropdownfield-OSwp7_BKJa7xzuZb").val();
+
+            if (value === "Advertising (4431080)") {
+              $(".advertising-allocation, .enter-project-allocation").css({
+                visibility: "visible",
+                height: "auto",
+              });
+            } else if (value === "Trade Shows (4492000)") {
+              $(".trade-show-allocation, .enter-project-allocation").css({
+                visibility: "visible",
+                height: "auto",
+              });
+            } else if (value === "Trade Promo (4491290)") {
+              $(".trade-promo-allocation, .enter-project-allocation").css({
+                visibility: "visible",
+                height: "auto",
+              });
+            } else if (
+              value === "Sales Expense (4491160)" ||
+              value === "Sales Expense Samples (7891230)"
+            ) {
+              $(".sales-expense-allocation, .enter-project-allocation").css({
+                visibility: "visible",
+                height: "auto",
+              });
+            }
+          } else {
+            $(
+              ".add-coding, .advertising-allocation, .trade-show-allocation, .trade-promo-allocation, .sales-expense-allocation, .enter-project-allocation"
+            ).css({
+              visibility: "hidden",
+              height: "0",
+            });
+          }
+        });
+      }
+
+      // Function to show/hide allocations based on dropdown selection
+      function toggleAllocations() {
+        $("#dropdownfield-OSwp7_BKJa7xzuZb").change(function () {
+          const value = $(this).val();
+          $(
+            ".advertising-allocation, .trade-show-allocation, .trade-promo-allocation, .sales-expense-allocation, .enter-project-allocation"
+          ).css({ visibility: "hidden", height: "0" });
+
+          if (value === "Advertising (4431080)") {
+            $(".advertising-allocation, .enter-project-allocation").css({
+              visibility: "visible",
+              height: "auto",
+            });
+          } else if (value === "Trade Shows (4492000)") {
+            $(".trade-show-allocation, .enter-project-allocation").css({
+              visibility: "visible",
+              height: "auto",
+            });
+          } else if (value === "Trade Promo (4491290)") {
+            $(".trade-promo-allocation, .enter-project-allocation").css({
+              visibility: "visible",
+              height: "auto",
+            });
+          } else if (
+            value === "Sales Expense (4491160)" ||
+            value === "Sales Expense Samples (7891230)"
+          ) {
+            $(".sales-expense-allocation, .enter-project-allocation").css({
+              visibility: "visible",
+              height: "auto",
+            });
+          }
+        });
+      }
+
+      // Function to check if the form is loaded
+      function checkFormLoaded() {
+        const radioGroup = $('input[name="radiobuttongroup-YPgY3"]');
+        if (radioGroup.length > 0) {
+          toggleAddCoding();
+          toggleAllocations();
+          const mainElement = $("main");
+          mainElement.css("display", "flex");
+          mainElement[0].offsetHeight;
+          mainElement.css("opacity", "1");
+        } else {
+          setTimeout(checkFormLoaded, 100);
+        }
+      }
+
+      // Start checking if the form is loaded
+      $(document).ready(function () {
+        checkFormLoaded();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,567 @@
+
+// fonts
+@import '_font-faces';
+
+$font-bold: 'gilroy-bold', sans-serif;
+$font-semibold: 'gilroy-semibold', sans-serif;
+$font-medium: 'gilroy-medium', sans-serif;
+$font-regular: 'gilroy-regular', sans-serif;
+$font-light: 'gilroy-light', sans-serif;
+
+// colours
+$red: #e4022d;
+$blue: #00677f;
+$dark-blue: #001e61;
+$mint: #b9e9dbb2;
+$dark-mint: #75c69d;
+$grey: #707070;
+$off-black: #010202;
+
+$link-colour: #00677f;
+$link-hover-colour: #00677f;
+
+$alt-bg: #F5F7F9;
+$colour-bg: #ffffff;
+
+// spacing
+$col-h-gap: 35px;
+
+html {
+    font-size: 16px;    /* base for REMs */
+
+    body {
+        margin: 0;
+        padding: 0;             
+        background-color: $colour-bg;   
+        font-family: $font-regular;     
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1rem;
+        -webkit-font-smoothing: antialiased;
+        text-align: left;
+    }
+}
+
+#page-wrap {
+    display: block;
+    padding: 20px 0 30px 0;
+    // width: calc(100% - 50px);
+    margin: 0 auto;
+    max-width: 1120px;
+    font-family: $font-regular;
+
+    h3 {
+        display: block;
+        font-weight: normal;
+        font-size: 34px;
+        margin: 0 0 20px 0;
+        font-family: $font-regular;
+    }
+
+    p {
+        display: block;
+        font-weight: normal;
+        font-size: 15px;
+        margin: 0 0 0 0;
+        font-family: $font-light;
+    }
+
+    a {
+        color: $link-colour;
+        text-decoration: none;
+        &:hover {
+            color: $link-hover-colour;
+            text-decoration: underline;
+        }
+    }
+
+    li:not(.select2-selection__choice):not(.select2-search) {
+        display: block;
+        width: calc(100% - 1em);
+        position: relative;
+        padding: 0 0 0 1em;
+        margin: 0 0 1em 0;
+
+        &:after {
+            display: block;
+            width: 0.4em;
+            height: 0.4em;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            content: "";
+        }
+    }
+
+    input, textarea, select {
+        font-family: $font-light;
+
+        &.error {
+            border-color: $red;
+        }
+
+        &:focus-visible {
+            outline-color: transparent;
+            outline-style: none;
+        }
+    }
+
+    .ppat-submit, 
+    .button {
+        display: flex;
+        width: fit-content;
+        border: 1px solid $grey;
+        border-radius: 26px;
+        padding: 10px 20px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 200px;
+        width: 100%;
+        color: $off-black;
+        font-family: $font-medium;
+        font-weight: normal;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        background-color: $colour-bg;
+        background-image: none;
+        margin: 20px auto 0 auto;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $dark-mint;
+            border-color: $dark-mint;
+            color: white;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.25;
+        }
+    }
+}
+
+.ppat-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+
+
+    &.submitting {
+        pointer-events: none;
+        opacity: 0.2 !important;
+    }
+
+    &.submitted {
+        display: none !important;
+    }
+
+    .ppat-form-row {
+        display: flex;
+        flex-basis: 100%;
+        align-items: center;
+        position: relative;
+        margin: 0 0 20px 0;
+
+        &.ppat-form-row-first_name,
+        &.ppat-form-row-last_name,
+        &.ppat-form-row-email {
+            flex-basis: 48%;
+        }
+
+        &.ppat-form-row-dropzone {
+            label {
+                display: none;
+            }
+        }
+    
+        .ppat-field-feedback-msg {
+            position: absolute;
+            left: 0;
+            top: -17px;
+            font-size: 12px;
+            pointer-events: none;
+    
+            &.ppat-field-error ~ input {
+                border-color: $red;
+            }
+        }
+    }
+
+    .accordion {
+        width: 100%;
+        background: $alt-bg;
+        border-radius: 5px;        
+        margin: 0 0 20px;
+
+        .accordion-tile {            
+            width: 100%;
+            height: 60px;
+            background: $mint;            
+            cursor: pointer;
+            user-select: none;
+            border-radius: 5px;
+
+            &:hover {
+                // background: $dark-blue;
+            }
+
+            h5 {
+                font-family: $font-medium;
+                font-weight: normal;
+                color: $dark-mint;         
+                font-size: 22px;
+                // text-transform: capitalize;
+                line-height: 60px;
+                margin: 0;
+
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 16px;
+                    height: 9px;
+                    background: url('../img/icon-arrow-dark-mint.svg');
+                    pointer-events: none;
+                    margin: 0 17px 2px;
+                    transition: transform 100ms ease;
+                }
+            }
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;            
+            padding: 0 24px;
+            // transition: padding 350ms ease, max-height 350ms ease;
+            transition: 350ms;
+
+            .accordion-fields {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 1fr;
+                grid-column-gap: $col-h-gap;
+
+                .ppat-form-row-dropzone {
+                    grid-column: 1;
+                    grid-row-start: 1;
+                    grid-row-end: span 2;
+                }                    
+
+                .ppat-field-feedback-msg-cf-upload {
+                    grid-column: 1;
+                }
+
+                [class*="word_"] {
+                    grid-column: 2;
+                    grid-row-start: 1;
+                }
+
+                [class*="camera_"] {
+                    grid-column: 2;
+                    grid-row-start: 2;
+                }
+
+                textarea {
+                    resize: vertical;
+                }
+
+            }
+
+            .next {
+                margin: 0 auto;
+            }
+        }
+
+        &.open {
+            .accordion-tile {
+                h5::before {
+                    transform: scaleY(-1);
+                }
+            }
+
+            .accordion-content {
+                max-height: 700px;
+                padding: 20px 24px;
+            }
+        }
+    }
+}
+
+.ppat_el_p {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin: 0 auto 10px auto !important;
+    pointer-events: all !important;
+    font-size: 14px !important;
+
+    a {
+        cursor: pointer !important;
+        font-weight: bold !important;
+    }
+}
+
+.ppat_el_p.ppat_el_footer_p {
+    text-align: center !important
+}
+
+.ppat_el_h2 {
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin: 0 auto 15px auto !important;
+    pointer-events: all !important;
+    font-size: 32px !important;
+    font-weight: normal;
+    text-align: center !important;
+    font-family: $font-regular;
+
+    a {
+        cursor: pointer !important;
+        font-weight: bold;
+    }
+}
+
+.ppat_sp {
+    margin: 0 0 20px 0 !important;
+    font-size: 10px !important;
+    line-height: 12px !important;
+}
+
+.ppat-form-label {
+    display: block;
+    width: 40%;
+    padding-right: 5px;
+
+    &[for='country'],                       /* hack for select2s */
+    &[for='state_can'],
+    &[for='state_mex'],
+    &[for='state_usa'],
+    &[for='purchase_frequency'],
+    &[for='currently_use'],        
+    &[for='brands'] {               
+        width: calc(40% - 7px);
+    }
+}
+
+.ppat-form-label a {
+    // font-weight: bold;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.ppat-text,
+.ppat-email,
+.select2-selection {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.ppat-select {
+    appearance: none;
+    background: url('https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png') no-repeat right 20px top 50% / 10px 7px #fff;
+    padding-right: 40px;
+    cursor: pointer;
+    height: 40px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+.ppat-dropzone {
+    border: 1px solid #bfbfbf !important;
+    font-size: 14px !important;
+    width: 100%;
+    text-align: center;
+
+    h4 {
+        display: block !important;
+        width: 80% !important;
+        text-align: center !important;
+        margin: 10px auto 0 auto !important;
+        pointer-events: none !important;
+        font-size: 14px !important;
+        font-weight: bold !important;
+    }
+
+    p {
+        display: block !important;
+        width: 80% !important;
+        text-align: center !important;
+        margin: 20px auto 0 auto !important;
+        pointer-events: none !important;
+        font-size: 16px !important;
+    }
+}
+
+.ppat-checkbox {
+    display: block;
+    width: 20px;
+    height: 20px;
+    appearance: auto;
+    margin: 0 10px 0 0;
+    border-radius: 0 !important;
+    outline-color: none;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: none;
+        position: absolute;
+        z-index: 10;
+        background: #fff;
+        color: #000;
+        background-repeat: no-repeat;
+        background-size: auto 60%;
+        background-position: 50% 50%;        
+        font-family: $font-regular;
+        font-weight: bold;
+        top: 0;
+        left: 0;
+        border: 1px solid #bfbfbf;
+    }
+
+    &:checked {
+        &:after {
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            background: none;
+            position: absolute;
+            z-index: 10;
+            background: #fff;
+            color: #000;
+            background-image: url("../../../assets/img/icon-check.svg");
+            background-repeat: no-repeat;
+            background-size: auto 60%;
+            background-position: 50% 50%;
+            content: " ";
+            font-family: $font-regular;
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            border: 1px solid #bfbfbf;
+        }
+    }
+}
+
+.ppat-form-row-checkbox {
+    .ppat-form-label {
+        width: 100%;
+    }
+
+    .ppat-field-feedback-msg {
+        top: calc(100%);
+        left: 30px;
+    }
+}
+
+.ppat-field-feedback-msg {
+    display: block;
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+    text-align: left;
+    color: $red;
+}
+
+[class*='ppat-field-feedback-msg-main'] {
+    display: none;
+}
+
+.ppat-field-feedback-msg-complete {
+    display: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+
+    &.complete {
+        display: block;
+    }
+}
+
+.ppat-field-feedback-msg-cf-upload {
+    text-align: left;
+    font-size: 12px;
+    transform: translateY(-1em);
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 700px) {
+    #page-wrap {
+
+        .ppat-form-label {
+            width: 100%;
+            margin-bottom: 3px;
+        }
+    
+        .ppat-field-feedback-msg {
+            bottom: -16px;
+            text-align: left;
+        }
+    
+        .ppat-form-row {
+            display: block;
+            flex-basis: 100%;
+
+            &.ppat-form-row-checkbox {
+                display: flex;
+            }
+
+            .ppat-field-feedback-msg {
+                bottom: -16px;
+                text-align: left;
+            }
+        }
+    
+        .ppat-field-feedback-msg-cf-upload {
+            bottom: 6px;
+            text-align: left;
+        }
+    
+        .ppat_sp {
+            margin: 0 0 3px 0 !important;
+        }
+
+
+        .accordion {
+            .accordion-content {
+                .accordion-fields {
+                    display: block;
+                }
+            }
+        } 
+    }
+}

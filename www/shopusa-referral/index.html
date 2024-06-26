@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopUSA Referral | Fujifilm Cloud</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="fav.ico"
+      sizes="16x16"
+      data-rh="true"
+    />
+
+    <style>
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      div[id^='form-container-'],
+      section#header {
+        min-width: 250px;
+        width: 80vw;
+        max-width: 800px;
+      }
+      .form--notice.success {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 16px;
+        color: rgb(31, 41, 55);
+        text-align: center;
+      }
+
+      .desk-only { display: block; }
+      .mob-only { display: none; }
+
+      section#header {
+        width: 100%;
+        margin: 0 auto;
+      }
+      section#header img {
+        width: 100%;
+      }
+      
+
+      @media screen and (max-width: 600px) {
+        .desk-only { display: none; }
+        .mob-only { display: block; }
+      }
+
+    </style>
+  </head>
+  <body>
+    <script src="https://renderer.fujifilm-cloud.com/renderer?t=1717680901012"></script>
+    <script>
+        const renderer = new FormRenderer({
+            formId: 'Udk6EfwkS6',
+            containerId: 'form-container-Udk6EfwkS6',
+            showFormOnSubmit: false,
+            platform: 'fujifilm'
+        });
+        renderer.renderForm();
+    </script>
+
+    <section id="header">
+      <img 
+        class="desk-only" 
+        src="images/form-page-header-desktop.jpg" 
+        title="Refer friends & family or a VIP" 
+        alt="Refer friends & family or a VIP"
+      />
+      <img 
+        class="mob-only" 
+        src="images/form-page-header-mobile.jpg" 
+        title="Refer friends & family or a VIP" 
+        alt="Refer friends & family or a VIP"
+      />
+    </section>
+
+    <main>
+      <div id="form-container-Udk6EfwkS6"></div>
+    </main>
+
+  </body>
+</html>

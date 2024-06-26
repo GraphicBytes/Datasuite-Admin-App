@@ -1,0 +1,897 @@
+// Fonts
+$fjalla-font-stack: 'Fjalla One', sans-serif;
+$noto-font-stack: noto-sans, sans-serif;
+$noto-cond-font-stack: noto-sans-condensed, sans-serif;
+$weight-reg: 400;
+$weight-bold: 700;
+
+// Colours
+$red: #EB022F;
+$pink: #FFEDED;
+$background-colour: #fff;
+$background-alt-colour: #F2F4F7;
+$grey-border-colour: #C9C9C9;
+$dark-font-colour: #505050;
+$mid-font-colour: #979797;
+$light-font-colour: #fff;
+$dropdown-highlight-colour: #E4E8ED;
+$spacing-xxl: clamp(4.00rem, calc(1.77rem + 11.16vw), 7.00rem);
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#page-wrap {
+    display: block;
+    padding: 20px 0 30px 0;    
+    margin: 0 auto;
+    max-width: 750px;
+    font-family: $noto-cond-font-stack;
+    font-weight: $weight-reg;
+    width: 100%;    
+
+    // error state
+    input, select, textarea {
+        &.field-error {
+            border: 2px solid red;
+            background: $pink;
+        }
+    }
+
+    section h2 {
+        font-family: $fjalla-font-stack;
+        font-size: 2.25rem;
+        line-height: 45.25px;
+        margin-bottom: 1.25rem;
+        text-align: center;
+        font-weight: 400;
+        max-width: 375px;
+        margin-inline: auto;
+    }
+
+    p {
+        color: rgba(80, 80, 80, 1);
+        line-height: 1.36;
+    }
+
+    p.headline {
+        font-size: 20px;
+    }
+
+    .bold {
+        font-weight: 700;
+    }
+
+    .mt30 {
+        margin-top: 30px;
+    }
+
+    .mt40 {
+        margin-top: 40px;
+    }
+
+    .mb40 {
+        margin-bottom: 30px;
+    }
+
+    .restrict {
+        max-width: 65ch;
+    }
+
+    .mt-xxl {
+        margin-top: $spacing-xxl;
+    }
+}
+
+@media(min-width: 500px) {
+    #page-wrap .two-cols {
+        display: flex;
+        justify-content: space-between;
+        gap: 36px;
+
+        > div:nth-child(2) {
+            max-width: 48%;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    #page-wrap {
+        section p {
+            text-align: center;
+        }
+    }
+}
+
+.ppat-form {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &.submitting {
+        pointer-events: none;
+        opacity: 0.2 !important;
+    }
+
+    &.submitted {
+        display: none !important;
+    }
+}
+
+.ppat-form-row {
+    margin: 0 0 25px 0;
+    position: relative;
+    width: calc(50% - 20px);
+    padding: 0 10px;
+
+    .ppat-field-feedback-msg {
+        position: absolute;
+        left: 10px;
+        // top: -15px;  // above fields
+        bottom: -18px;  // below fields
+        font-size: 12px;
+        pointer-events: none;
+    }
+}
+
+// make certain fields fit horizontally
+.ppat-form-row-phone_area { width: calc(20% - 20px); }
+.ppat-form-row-phone_number { width: calc(30% - 20px); }
+
+.ppat-form-row-address { width: calc(38% - 20px); }
+.ppat-form-row-province { width: calc(38% - 20px); }
+.ppat-form-row-postal_code { width: calc(24% - 20px); }
+
+.ppat-form-row-gear,
+.ppat-form-row-story,
+.ppat-form-row-impact,
+.ppat-form-row-reason,
+.ppat-form-row-cf-upload,
+.ppat-form-row-html_1,
+.ppat-form-row-html_2,
+.ppat-form-row-html_3,
+.ppat-form-row-html_4,
+.ppat-form-row-html_5,
+.ppat-form-row-terms,
+.ppat-form-row-submit { width: calc(100% - 20px); }
+
+
+// different layout and labels for socials
+.ppat-form-row-website, 
+.ppat-form-row-social_1, 
+.ppat-form-row-social_2, 
+.ppat-form-row-social_3, 
+.ppat-form-row-social_4, 
+.ppat-form-row-social_extra {
+    display: flex;
+    flex-direction: row;
+
+    .ppat-form-label {
+        color: $mid-font-colour;
+        font-weight: $weight-reg;
+        width: 40%;
+        line-height: 40px;
+    }
+}
+
+.ppat-form-row-website{
+    .ppat-field-feedback-msg {
+        bottom: -5px;
+    }
+}
+
+// squeeze together
+.ppat-form-row-social_4, 
+.ppat-form-row-social_extra {
+    margin-top: -20px;
+}
+
+
+// force order below submit (not possible with field order in DB)
+.ppat-form-row-html_5 { display: flex; flex-direction: column; order: 31; }
+.ppat-form-row-submit { display: flex; flex-direction: column; order: 30; }
+
+
+
+.ppat-text,
+.ppat-email,
+.ppat-textarea,
+.select2-selection {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid $grey-border-colour;
+    padding: 10px 20px;
+    font-family: $noto-cond-font-stack;
+    font-weight: $weight-reg;
+    font-size: 15px;
+}
+
+.ppat-select {
+    appearance: none;
+    background: url('https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png') no-repeat right 20px top 50% / 10px 7px #fff;
+    padding-right: 40px;
+    cursor: pointer;
+    height: 40px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+    font-size: 14px;
+    padding: 5px 20px;
+}
+
+.ppat-dropzone {
+    border: 1px dashed $grey-border-colour !important;
+    font-size: 15px !important;
+    width: 100%;
+    text-align: left;
+    color: $mid-font-colour;
+    cursor: pointer;
+    display: flex;    
+    align-items: center;
+
+    .icon {
+        width: 30px;
+        height: 30px;
+        background: url('../../../assets/img/icon-upload.svg') no-repeat center;
+        display: block;
+        margin: 24px;
+        pointer-events: none;
+    }
+
+    h4 {
+        display: block !important;
+        margin: 28px 0;
+        pointer-events: none !important;
+        flex-grow: 1;
+    }    
+
+    .button {
+        width: 98px;
+        height: 27px;
+        color: white;
+        background-color: $red;
+        margin: 24px;
+        pointer-events: none;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 30px;
+        text-transform: uppercase;
+    }
+
+    // hide dropzone elements when dz-preview is shown
+    &.dz-started {
+        justify-content: center;
+
+        .icon, .button, h4 {
+            display: none !important;
+        }
+
+        .dz-preview {
+            margin: 10px;
+            text-align: center;
+
+            .dz-remove {
+                font-family: $noto-cond-font-stack;
+                font-weight: $weight-bold;
+                font-size: 12px;
+                color: $mid-font-colour;
+                text-transform: uppercase;
+            }
+
+            .dz-success-mark, .dz-error-mark {
+                svg path {
+                    fill: #FFFFFF;
+                    stroke: $dark-font-colour;
+                    stroke-opacity: 1;
+                    stroke-width: 2px;
+                }
+            }
+        }
+    }
+}
+
+.ppat-checkbox {
+    display: block;
+    width: 20px;
+    height: 20px;
+    appearance: auto;
+    margin: 0 10px 0 0;
+    border-radius: 0 !important;
+    outline-color: none;
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: none;
+        position: absolute;
+        z-index: 10;
+        background: #fff;
+        color: #000;
+        background-repeat: no-repeat;
+        background-size: auto 60%;
+        background-position: 50% 50%;        
+        font-family: $noto-font-stack;
+        font-weight: bold;
+        top: 0;
+        left: 0;
+        border: 1px solid #bfbfbf;
+    }
+
+    &:checked {
+        &:after {
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            background: none;
+            position: absolute;
+            z-index: 10;
+            background: #fff;
+            color: #000;
+            background-image: url("../../../assets/img/icon-check.svg");
+            background-repeat: no-repeat;
+            background-size: auto 60%;
+            background-position: 50% 50%;
+            content: " ";
+            font-family: $noto-font-stack;
+            font-weight: bold;
+            top: 0;
+            left: 0;
+            border: 1px solid #bfbfbf;
+        }
+    }
+}
+
+.ppat-textarea {
+    width: 100%;
+    min-height: 40px;
+    padding-top: 7px;
+}
+
+.ppat-submit {
+    font-family: $fjalla-font-stack !important;
+    font-weight: 300;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 160px;
+    width: 180px;
+    height: 27px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 14px;
+    background-color: $red;
+    background-image: none;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}
+
+.ppat-field-feedback-msg {
+    display: block;
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+    text-align: left;
+    color: red;
+}
+
+[class*='ppat-field-feedback-msg-main'] {
+    display: none;
+}
+
+.ppat-form-label,
+.ppat_el_label {
+    display: block;    
+    padding-bottom: 15px;
+    font-size: 16px;
+    font-weight: $weight-bold;
+    color: $dark-font-colour;
+
+    span {
+        color: $red;
+
+        &.asterisk {
+            font-size: 10px;
+            position: absolute;
+            margin: 1px 0 0 3px;
+            display: inline-block;
+        }
+    }
+
+    a {
+        font-weight: bold;
+        color: $mid-font-colour;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &.centre {
+        text-align: center;
+    }
+
+    &.small {
+        font-size: 14px;
+        margin-top: -20px;
+    }
+
+    &.inline-small {
+        font-size: 14px;
+        display: inline;
+    }
+}
+
+.ppat_el_label {
+    padding-bottom: 0;
+
+    span {
+        display: block;
+        font-weight: $weight-reg;
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}
+
+.ppat_el_span {
+    display: block;
+    font-weight: $weight-reg;
+    font-size: 12px;
+    margin-top: 5px !important;
+}
+
+.ppat-form-row-checkbox {
+    display: flex;    
+
+    .ppat-form-label {
+        width: 100%;
+        font-weight: $weight-reg;
+        
+        a {
+            font-weight: $weight-bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-decoration: underline;
+            display: block;
+            margin: 10px 0 0;
+        }
+    }
+
+    .ppat-field-feedback-msg {
+        // top: -18px;     // above
+        bottom: -14px;      // below
+    }
+}
+
+#page-wrap {
+    .ppat-field-feedback-msg-complete {
+        display: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 30px 0;
+        text-align: center;
+        width: 100%;
+
+        h3 {
+            font-family: $fjalla-font-stack;
+            font-size: 36px;
+        }
+
+        p {
+            font-family: $noto-font-stack;
+            font-size: 20px;
+        }
+
+        &.complete {
+            display: block;
+        }
+    }
+}
+
+.ppat-field-feedback-msg-cf-upload {
+    text-align: left;
+    font-size: 12px;
+    transform: translateY(-1em);
+}
+
+
+
+/* select show/hide */
+.ppat-form-row-genre_video, 
+.ppat-form-row-genre_still, 
+.ppat-form-row-genre_both {
+    display: none !important;
+}
+
+.ppat-form-row-genre_video.show, 
+.ppat-form-row-genre_still.show, 
+.ppat-form-row-genre_both.show {
+    display: block !important;
+}
+
+/* other field show/hide */
+[class^="ppat-form-row"][class*="_other"] {
+    display: none !important;
+
+    width: calc(100% - 40px);
+    padding-left: 30px;
+    grid-column: 1;
+}
+
+[class^="ppat-form-row"][class*="_other"].show {
+    display: block !important;
+}
+
+
+
+
+
+
+$input-padding: 10px 20px;
+
+
+.select2-results__option--disabled {
+    display: none;
+}
+
+
+.select2-container {
+    padding: 0;
+    width: 100% !important;
+    font-family: $noto-cond-font-stack;
+    font-weight: $weight-reg;
+    font-size: 15px;
+
+    .select2-selection {
+        height: auto;
+        border-radius: 0;
+        border: 1px solid $grey-border-colour !important;
+
+        .select2-selection__rendered {
+            padding: 5px 20px 5px 10px;
+            color: $dark-font-colour;
+        }
+
+        .select2-search {
+
+            margin-left: -15px;
+
+            .select2-search__field {
+                width: auto !important;
+                cursor: pointer;
+                position: absolute;    
+                left: 15px;            
+                margin: 0;
+                padding-top: 2px;
+                height: auto;
+                font-family: $noto-cond-font-stack;   // needs specifiying as well             
+                font-weight: $weight-reg;
+                font-size: 15px;
+
+                &:focus {
+                    outline-color: transparent;
+                    outline-style: none;
+                }
+            }
+        }
+
+        .select2-selection__clear {
+            margin-right: 30px;
+        }
+
+        .select2-selection__placeholder {
+            color: $mid-font-colour;
+        }
+
+        &.select2-selection--multiple {
+            padding: 5px 15px;
+            cursor: pointer;
+            min-height: 39px;
+
+            .select2-selection__rendered {
+                padding-left: 0;
+
+                .select2-selection__choice {
+                    display: inline-block;
+                    width: auto;
+                    margin: 5px 10px 5px 0;
+                    padding: 0 30px 0 3px;
+                    border-radius: 0;
+                    background-color: transparent;
+                    border: 1px solid $grey-border-colour;
+                    border-radius: 5px;
+                    color: $mid-font-colour;
+                    
+
+                    .select2-selection__choice__remove {
+                        border: none;
+                        border-radius: 100px;
+                        position: absolute;
+                        right: 0;
+                        left: auto;
+                        margin: 5px;
+                        background: red;
+                        width: 10px;
+                        height: 10px;
+                        text-align: center;
+                        line-height: 10px;
+                        color: white;
+                        padding: 2px;
+
+                        span {
+                            font-weight: normal;
+                            text-align: center;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            display: block;
+                            margin: 0 auto;
+                            font-size: 10px;
+                            color: white;
+                            line-height: 10px;
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image: url('https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png');
+                background-position: center;
+                background-size: 50%;
+                background-repeat: no-repeat;
+                position: absolute;
+                right: 15px;
+                top: 8px;
+            }
+
+            .select2-selection__choice__remove {
+                font-weight: normal;
+            }
+        }
+
+        &.select2-selection--single {
+            padding: $input-padding;
+
+            .select2-selection__rendered {
+                padding: 0;
+                line-height: normal;
+
+                &[title='Select'],          /* hack for placeholder colour */
+                &[title='Province'],
+                &[title='State'] {
+                    color: $mid-font-colour;
+                }
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-image: url('https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png');
+                background-position: center;
+                background-size: 50%;
+                background-repeat: no-repeat;
+                position: absolute;
+                right: 15px;
+                top: 8px;
+            }
+        }
+    }
+
+    .select2-dropdown {
+        color: $dark-font-colour;
+        border-radius: 0;
+        border: none;
+        text-align: left;
+
+        .select2-results__option {
+            font-family: $noto-font-stack;
+            font-size: 14px;
+        }
+
+        .select2-results__option--highlighted,
+        .select2-results__option--selected {
+            color: $dark-font-colour;
+            background-color: $dropdown-highlight-colour;
+        }
+    }
+
+    .select2-selection__arrow {
+        b {
+            display: none;
+        }
+    }
+
+    &.select2-container--open {
+        // width: auto !important;
+
+
+        .select2-selection--multiple::after,
+        .select2-selection--single::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    .select2-results {
+        .select2-results__options {
+            max-height: 279px;
+            border: 1px solid $dropdown-highlight-colour;
+            border-width: 0 1px 1px;
+        }
+    }
+    
+}
+/* /styles added for select2 multiselects */
+
+
+
+
+@media all and (max-width: 700px) {
+    #page-wrap {
+
+        form.ppat-form {
+            max-width: calc(100% - 20px);
+            margin: 0 auto;
+        }
+
+        .ppat-form-label {
+            width: 100%;
+            margin-bottom: 0;
+            padding-right: 0;
+            padding-bottom: 10px;
+        }
+    
+        .ppat-form-row {
+            width: 100%;
+            padding: 0;
+
+            &.ppat-form-row-checkbox {
+                display: flex;
+            }
+
+            .ppat-field-feedback-msg {
+                left: 0;
+                text-align: left;
+            }
+
+            // change order of social link fields on mobile
+            &.ppat-form-row-name { order: 1; }
+            &.ppat-form-row-email { order: 2; }
+            &.ppat-form-row-phone_area { order: 3; }
+            &.ppat-form-row-phone_number { order: 4; }
+            &.ppat-form-row-mobile { order: 5; }
+            &.ppat-form-row-address { order: 6; }
+            &.ppat-form-row-province { order: 7; }
+            &.ppat-form-row-postal_code { order: 8; }
+            &.ppat-form-row-gear { order: 9; }
+            &.ppat-form-row-html_1 { order: 10; }   
+            &.ppat-form-row-website { order: 11; }
+            &.ppat-form-row-social_1 { order: 12; }
+            &.ppat-form-row-html_2 { order: 13; }
+            &.ppat-form-row-social_2 { order: 14; }
+            &.ppat-form-row-social_3 { order: 15; }
+            &.ppat-form-row-social_4 { order: 16; }
+            &.ppat-form-row-social_5 { order: 17; }
+            &.ppat-form-row-social_extra { order: 18; }
+            &.ppat-form-row-story { order: 20; }            
+            &.ppat-form-row-impact { order: 21; }
+            &.ppat-form-row-reason { order: 22; }  
+            &.ppat-form-row-html_3 { order: 23; }          
+            &.ppat-form-row-cf-upload { order: 24; }
+            &.ppat-field-feedback-msg-cf-upload { order: 25; }
+            &.ppat-form-row-html_4 { order: 26; }
+            &.ppat-form-row-terms { order: 27; }
+            &.ppat-form-row-submit { order: 28; }
+            &.ppat-form-row-html_5 { order: 30; }
+
+            // make certain fields fit horizontally
+            &.ppat-form-row-phone_area { 
+                width: calc(40% - 10px); 
+                margin-right: 10px;
+            }
+            &.ppat-form-row-phone_number { width: 60%; }
+
+            &.ppat-form-row-website,
+            &.ppat-form-row-social_1,
+            &.ppat-form-row-social_2,
+            &.ppat-form-row-social_3,
+            &.ppat-form-row-social_4,
+            &.ppat-form-row-social_extra { 
+                display: flex;
+                flex-direction: row;
+                width: 100%; 
+
+                .ppat-form-label {
+                    width: 35%;
+                    padding-bottom: 0;
+                    line-height: 40px;
+                }
+            }
+
+            // squeeze together
+            &.ppat-form-row-province,
+            &.ppat-form-row-postal_code {
+                margin-top: -7px;
+
+                .ppat-form-label {
+                    display: none;
+                }
+            }
+
+            &.ppat-form-row-website,
+            &.ppat-form-row-social_1,
+            &.ppat-form-row-social_2,
+            &.ppat-form-row-social_3,
+            &.ppat-form-row-social_4,
+            &.ppat-form-row-social_extra { 
+                margin-top: -10px;
+            }
+
+            &.ppat-form-row-website {
+                .ppat-field-feedback-msg {
+                    bottom: -18px;
+                }
+            }
+
+            // web & social secion indent
+            &.ppat-form-row-website,
+            &.ppat-form-row-social_1,
+            &.ppat-form-row-html_2,
+            &.ppat-form-row-social_2,
+            &.ppat-form-row-social_3,
+            &.ppat-form-row-social_4,
+            &.ppat-form-row-social_extra {
+                padding-left: 10px;
+            }
+
+
+        }
+
+        .ppat_el_label.small {
+            margin-top: 0;
+        }
+
+        .ppat-dropzone {
+            .icon, .button {
+                margin: 24px 10px;
+                flex-shrink: 0;
+            }
+            .button {
+                margin-left: 0;
+            }
+        }
+    
+        .ppat-field-feedback-msg-cf-upload {
+            bottom: 6px;
+            text-align: left;
+        }
+
+    }
+}

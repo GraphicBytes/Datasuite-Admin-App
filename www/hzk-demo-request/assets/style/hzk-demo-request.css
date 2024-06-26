@@ -1,0 +1,345 @@
+/* inherited styles from GFX Challenge */
+#page-wrap {
+  display: block;
+  padding: 20px 0 30px 0;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  max-width: 1120px;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap h3 {
+  display: block;
+  font-weight: normal;
+  font-size: 34px;
+  margin: 0 0 20px 0;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap p {
+  display: block;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0 0 0 0;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap li {
+  display: block;
+  width: calc(100% - 1em);
+  position: relative;
+  padding: 0 0 0 1em;
+  margin: 0 0 1em 0;
+}
+#page-wrap li:after {
+  display: block;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  content: "";
+}
+#page-wrap input {
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap input.error {
+  border-color: red;
+}
+
+.ppat-form {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.ppat-form.submitting {
+  pointer-events: none;
+  opacity: 0.2 !important;
+}
+.ppat-form.submitted {
+  display: none !important;
+}
+
+.ppat-form-row {
+  display: flex;
+  margin: 0 0 20px 0;
+  position: relative;
+}
+.ppat-form-row .ppat-field-feedback-msg {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.ppat-form-row-html_1 a {
+  font-weight: bold;
+}
+
+.ppat-text,
+.ppat-email {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.ppat-select {
+  appearance: none;
+  background: url("https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png") no-repeat right 20px top 50%/10px 7px #fff;
+  padding-right: 40px;
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 5px 20px;
+}
+
+.ppat-dropzone {
+  border: 1px solid #bfbfbf !important;
+  font-size: 14px !important;
+  width: 100%;
+  text-align: center;
+}
+.ppat-dropzone h4 {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+.ppat-dropzone p {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+}
+
+.ppat_el_p {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 10px auto !important;
+  pointer-events: all !important;
+  font-size: 14px !important;
+}
+.ppat_el_p a {
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+
+.ppat_el_p.ppat_el_footer_p {
+  text-align: center !important;
+}
+
+.ppat_el_h2 {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 15px auto !important;
+  pointer-events: all !important;
+  font-size: 32px !important;
+  font-weight: normal;
+  text-align: center !important;
+  font-family: "Urbanist", sans-serif;
+}
+.ppat_el_h2 a {
+  cursor: pointer !important;
+  font-weight: bold;
+}
+
+.ppat-checkbox {
+  display: block;
+  width: 20px;
+  height: 20px;
+  appearance: auto;
+  margin: 0 10px 0 0;
+  border-radius: 0 !important;
+  outline-color: none;
+  position: relative;
+  cursor: pointer;
+}
+.ppat-checkbox:after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  content: " ";
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+.ppat-checkbox:checked:after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-image: url("../../../assets/img/icon-check.svg");
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  content: " ";
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+
+.ppat-submit {
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 160px;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #000;
+  background-image: none;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+.ppat-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ppat-field-feedback-msg {
+  display: block;
+  width: 100%;
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+  color: red;
+}
+
+[class*=ppat-field-feedback-msg-main] {
+  display: none;
+}
+
+.ppat-form-label {
+  display: block;
+  width: 40%;
+}
+
+.ppat-form-label a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ppat-form-label a:hover {
+  text-decoration: underline;
+}
+
+.ppat-form-row-checkbox .ppat-form-label {
+  width: 100%;
+}
+.ppat-form-row-checkbox .ppat-field-feedback-msg {
+  top: 100%;
+  left: 30px;
+}
+
+.ppat-field-feedback-msg-complete {
+  display: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+.ppat-field-feedback-msg-complete.complete {
+  display: block;
+}
+
+.ppat-field-feedback-msg-cf-upload {
+  text-align: left;
+  font-size: 12px;
+  transform: translateY(-1em);
+}
+
+.ppat_sp {
+  margin: 0 0 20px 0 !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+}
+
+/* state select show/hide */
+.ppat-form-row-state_can,
+.ppat-form-row-state_mex,
+.ppat-form-row-state_usa {
+  display: none;
+}
+
+.ppat-form-row-state_can.show,
+.ppat-form-row-state_mex.show,
+.ppat-form-row-state_usa.show {
+  display: flex;
+}
+
+/* other field show/hide */
+[class^=ppat-form-row][class*=_other] {
+  display: none;
+}
+
+[class^=ppat-form-row][class*=_other].show {
+  display: flex;
+}
+
+@media all and (max-width: 700px) {
+  .ppat-field-feedback-msg {
+    bottom: -16px;
+    text-align: left;
+  }
+  .ppat-form-row {
+    flex-direction: column;
+  }
+  .ppat-form-row .ppat-field-feedback-msg {
+    bottom: -16px;
+    text-align: left;
+    height: 10px;
+  }
+  .ppat-form-row .ppat-form-label {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .ppat-field-feedback-msg-cf-upload {
+    bottom: 6px;
+    text-align: left;
+  }
+  .ppat_sp {
+    margin: 0 0 3px 0 !important;
+  }
+}
+
+/*# sourceMappingURL=hzk-demo-request.css.map */

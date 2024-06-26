@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  host:
+    container_name: ${HOST_CONTAINER_NAME}
+    hostname: ${HOST_NAME}
+    image: ${HOST_CONTAINER_IMAGE}
+    build:
+      context: ./.docker/host
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./${DOCKER_DOCUMENT_ROOT}:/usr/local/apache2/htdocs
+      - ./.docker/host/apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - ${HOST_PORT}:80
+      

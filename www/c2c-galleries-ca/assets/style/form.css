@@ -1,0 +1,418 @@
+/*
+ *  Styles for a GFX Challenge-inherited, pulled-in form
+ */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#page-wrap {
+  display: block;
+  padding: 20px 0 30px 0;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  max-width: 1206px;
+  font-family: "Noto Sans", sans-serif;
+  width: 100%;
+}
+#page-wrap h3 {
+  display: block;
+  font-weight: normal;
+  font-size: 34px;
+  margin: 0 0 20px 0;
+  font-family: "Noto Sans", sans-serif;
+}
+#page-wrap p {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0 0 0 0;
+  font-family: "Noto Sans", sans-serif;
+}
+#page-wrap input {
+  font-family: "Noto Sans", sans-serif;
+}
+#page-wrap input.error {
+  border-color: red;
+}
+
+.ppat-form {
+  width: 100%;
+  position: relative;
+}
+.ppat-form.submitting {
+  pointer-events: none;
+  opacity: 0.2 !important;
+}
+.ppat-form.submitted {
+  display: none !important;
+}
+
+form.ppat-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ppat-form-row {
+  margin: 0 0 20px 0;
+  position: relative;
+  width: calc(100% - 20px);
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+.ppat-form-row .ppat-field-feedback-msg {
+  position: absolute;
+  left: 10px;
+  bottom: -18px;
+  font-size: 12px;
+  pointer-events: none;
+}
+.ppat-form-row.ppat-form-row-name {
+  order: 1;
+}
+.ppat-form-row.ppat-form-row-email {
+  order: 2;
+}
+.ppat-form-row.ppat-form-row-terms {
+  order: 3;
+}
+.ppat-form-row.ppat-form-row-marketing {
+  order: 4;
+}
+.ppat-form-row.ppat-form-row-submit {
+  order: 5;
+}
+.ppat-form-row.ppat-form-row-required_msg {
+  order: 6;
+}
+
+.ppat-form-row-html_1 a {
+  font-weight: bold;
+}
+
+.ppat-text,
+.ppat-email {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.ppat-select {
+  appearance: none;
+  background: url("https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png") no-repeat right 20px top 50%/10px 7px #fff;
+  padding-right: 40px;
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 5px 20px;
+}
+
+select::-webkit-input-placeholder { /* Edge */
+  color: red;
+}
+select:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+select::placeholder {
+  color: red;
+}
+
+.ppat-dropzone {
+  border: 1px solid #bfbfbf !important;
+  font-size: 14px !important;
+  width: 100%;
+  text-align: center;
+}
+.ppat-dropzone h4 {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+.ppat-dropzone p {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+}
+
+.ppat_el_p {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 10px auto !important;
+  pointer-events: all !important;
+  font-size: 14px !important;
+}
+.ppat_el_p a {
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+
+.ppat_el_p.ppat_el_footer_p {
+  text-align: center !important;
+}
+
+.ppat_el_h2 {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 15px auto !important;
+  pointer-events: all !important;
+  font-size: 32px !important;
+  font-weight: normal;
+  text-align: center !important;
+  font-family: "Noto Sans", sans-serif;
+}
+.ppat_el_h2 a {
+  cursor: pointer !important;
+  font-weight: bold;
+}
+
+.ppat-checkbox {
+  display: block;
+  width: 20px;
+  height: 20px;
+  appearance: auto;
+  margin: 0 10px 0 0;
+  border-radius: 0 !important;
+  outline-color: none;
+  position: relative;
+  cursor: pointer;
+}
+.ppat-checkbox:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+.ppat-checkbox:checked:after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-image: url("../../../assets/img/icon-check.svg");
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  content: " ";
+  font-family: "Noto Sans", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+
+.ppat-form-row-textarea {
+  grid-row: span 5;
+}
+
+.ppat-textarea {
+  width: 100%;
+  min-height: 270px;
+}
+
+.ppat-form-row-submit {
+  grid-column: span 2;
+}
+
+.ppat-submit,
+.cta {
+  font-family: "Fjalla One", sans-serif !important;
+  font-weight: 300;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 160px;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  background-color: #FB0020;
+  background-image: none;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.ppat-submit:disabled,
+.cta:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ppat-field-feedback-msg {
+  display: block;
+  width: 100%;
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+  color: red;
+}
+
+[class*=ppat-field-feedback-msg-main] {
+  display: none;
+}
+
+.ppat-form-label,
+.ppat_el_label {
+  display: block;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+.ppat-form-label a,
+.ppat_el_label a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ppat-form-label a:hover,
+.ppat_el_label a:hover {
+  text-decoration: underline;
+}
+
+.ppat_el_label.centre {
+  text-align: center;
+}
+
+.ppat-form-row-checkbox {
+  grid-column: span 2;
+  flex-direction: row;
+}
+.ppat-form-row-checkbox .ppat-form-label {
+  width: 100%;
+}
+.ppat-form-row-checkbox .ppat-field-feedback-msg {
+  bottom: -16px;
+}
+
+#page-wrap .ppat-field-feedback-msg-complete {
+  display: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+#page-wrap .ppat-field-feedback-msg-complete h3 {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 50px;
+}
+#page-wrap .ppat-field-feedback-msg-complete p {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 30px;
+}
+#page-wrap .ppat-field-feedback-msg-complete .cta {
+  text-decoration: none;
+}
+#page-wrap .ppat-field-feedback-msg-complete.complete {
+  display: block;
+}
+
+.ppat-field-feedback-msg-cf-upload {
+  text-align: left;
+  font-size: 12px;
+  transform: translateY(-1em);
+}
+
+.ppat_sp {
+  margin: 0 0 20px 0 !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+}
+
+/* select show/hide */
+.ppat-form-row-genre_video,
+.ppat-form-row-genre_still,
+.ppat-form-row-genre_both {
+  display: none !important;
+}
+
+.ppat-form-row-genre_video.show,
+.ppat-form-row-genre_still.show,
+.ppat-form-row-genre_both.show {
+  display: block !important;
+}
+
+/* other field show/hide */
+[class^=ppat-form-row][class*=_other] {
+  display: none !important;
+  width: calc(100% - 40px);
+  padding-left: 30px;
+  grid-column: 1;
+}
+
+[class^=ppat-form-row][class*=_other].show {
+  display: block !important;
+}
+
+@media all and (max-width: 700px) {
+  #page-wrap .ppat-form-label {
+    width: 100%;
+    margin-bottom: 3px;
+    padding-right: 0;
+  }
+  #page-wrap .ppat-form-row {
+    display: block;
+    width: calc(100% - 20px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+  }
+  #page-wrap .ppat-form-row.ppat-form-row-checkbox {
+    display: flex;
+  }
+  #page-wrap .ppat-form-row .ppat-field-feedback-msg {
+    left: 0;
+    text-align: left;
+  }
+  #page-wrap .ppat-field-feedback-msg-cf-upload {
+    bottom: 6px;
+    text-align: left;
+  }
+  #page-wrap .ppat_sp {
+    margin: 0 0 3px 0 !important;
+  }
+  #page-wrap .ppat-textarea {
+    min-height: 250px;
+  }
+}
+
+/*# sourceMappingURL=form.css.map */

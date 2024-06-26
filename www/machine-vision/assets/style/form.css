@@ -1,0 +1,501 @@
+/*
+ *  Styles for a GFX Challenge-inherited, pulled-in form with a Select2
+ */
+/* inherited styles from GFX Challenge */
+#page-wrap {
+  display: block;
+  padding: 20px 0 30px 0;
+  width: calc(100% - 50px);
+  margin: 0 auto;
+  max-width: 1120px;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap h3 {
+  display: block;
+  font-weight: normal;
+  font-size: 34px;
+  margin: 0 0 20px 0;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap p {
+  display: block;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0 0 0 0;
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap li:not(.select2-selection__choice):not(.select2-search) {
+  display: block;
+  width: calc(100% - 1em);
+  position: relative;
+  padding: 0 0 0 1em;
+  margin: 0 0 1em 0;
+}
+#page-wrap li:not(.select2-selection__choice):not(.select2-search):after {
+  display: block;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  content: "";
+}
+#page-wrap input {
+  font-family: "Urbanist", sans-serif;
+}
+#page-wrap input.error {
+  border-color: red;
+}
+
+.ppat-form {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.ppat-form.submitting {
+  pointer-events: none;
+  opacity: 0.2 !important;
+}
+.ppat-form.submitted {
+  display: none !important;
+}
+
+.ppat-form-row {
+  display: flex;
+  margin: 0 0 20px 0;
+  position: relative;
+}
+.ppat-form-row .ppat-field-feedback-msg {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.ppat-form-row-html_1 a {
+  font-weight: bold;
+}
+
+.ppat-text,
+.ppat-email,
+.select2-selection {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.ppat-select {
+  appearance: none;
+  background: url("https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png") no-repeat right 20px top 50%/10px 7px #fff;
+  padding-right: 40px;
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  font-size: 14px;
+  padding: 5px 20px;
+}
+
+.ppat-dropzone {
+  border: 1px solid #bfbfbf !important;
+  font-size: 14px !important;
+  width: 100%;
+  text-align: center;
+}
+.ppat-dropzone h4 {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+.ppat-dropzone p {
+  display: block !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 10px auto 0 auto !important;
+  pointer-events: none !important;
+  font-size: 14px !important;
+}
+
+.ppat_el_p {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 10px auto !important;
+  pointer-events: all !important;
+  font-size: 14px !important;
+}
+.ppat_el_p a {
+  cursor: pointer !important;
+  font-weight: bold !important;
+}
+
+.ppat_el_p.ppat_el_footer_p {
+  text-align: center !important;
+}
+
+.ppat_el_h2 {
+  display: block !important;
+  width: 100% !important;
+  text-align: left !important;
+  margin: 0 auto 15px auto !important;
+  pointer-events: all !important;
+  font-size: 32px !important;
+  font-weight: normal;
+  text-align: center !important;
+  font-family: "Urbanist", sans-serif;
+}
+.ppat_el_h2 a {
+  cursor: pointer !important;
+  font-weight: bold;
+}
+
+.ppat-checkbox {
+  display: block;
+  width: 20px;
+  height: 20px;
+  appearance: auto;
+  margin: 0 10px 0 0;
+  border-radius: 0 !important;
+  outline-color: none;
+  position: relative;
+  cursor: pointer;
+}
+.ppat-checkbox:after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+.ppat-checkbox:checked:after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  background: none;
+  position: absolute;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  background-image: url("../../../assets/img/icon-check.svg");
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  background-position: 50% 50%;
+  content: " ";
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  border: 1px solid #bfbfbf;
+}
+
+.ppat-submit {
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 160px;
+  width: 100%;
+  height: 50px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #000;
+  background-image: none;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+.ppat-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ppat-field-feedback-msg {
+  display: block;
+  width: 100%;
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+  color: red;
+}
+
+[class*=ppat-field-feedback-msg-main] {
+  display: none;
+}
+
+.ppat-form-label {
+  display: block;
+  width: 40%;
+  padding-right: 5px;
+}
+.ppat-form-label[for=country], .ppat-form-label[for=state_can], .ppat-form-label[for=state_mex], .ppat-form-label[for=state_usa], .ppat-form-label[for=purchase_frequency], .ppat-form-label[for=currently_use], .ppat-form-label[for=brands] {
+  width: calc(40% - 7px);
+}
+
+.ppat-form-label a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ppat-form-label a:hover {
+  text-decoration: underline;
+}
+
+.ppat-form-row-checkbox .ppat-form-label {
+  width: 100%;
+}
+.ppat-form-row-checkbox .ppat-field-feedback-msg {
+  top: 100%;
+  left: 30px;
+}
+
+.ppat-field-feedback-msg-complete {
+  display: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+.ppat-field-feedback-msg-complete.complete {
+  display: block;
+}
+
+.ppat-field-feedback-msg-cf-upload {
+  text-align: left;
+  font-size: 12px;
+  transform: translateY(-1em);
+}
+
+.ppat_sp {
+  margin: 0 0 20px 0 !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+}
+
+/* state select show/hide */
+.ppat-form-row-state_can,
+.ppat-form-row-state_mex,
+.ppat-form-row-state_usa {
+  display: none !important;
+}
+
+.ppat-form-row-state_can.show,
+.ppat-form-row-state_mex.show,
+.ppat-form-row-state_usa.show {
+  display: flex !important;
+}
+
+/* other field show/hide */
+[class^=ppat-form-row][class*=_other] {
+  display: none !important;
+}
+
+[class^=ppat-form-row][class*=_other].show {
+  display: flex !important;
+}
+
+/* styles added for select2 multiselects */
+/* Fonts */
+.light_font_colour {
+  color: #fff;
+}
+
+.dark_font_colour {
+  color: #000;
+}
+
+.bold_body_copy {
+  font-family: noto-sans, sans-serif;
+  font-weight: 700;
+}
+
+.select2-results__option--disabled {
+  display: none;
+}
+
+.select2-container {
+  padding: 0;
+  width: 100% !important;
+}
+.select2-container .select2-selection {
+  height: auto;
+  border-radius: 0;
+  border: 1px solid #bababa;
+}
+.select2-container .select2-selection .select2-selection__rendered {
+  padding: 5px 20px 5px 10px;
+  color: #000;
+}
+.select2-container .select2-selection .select2-selection__rendered[title=Select], .select2-container .select2-selection .select2-selection__rendered[title="Please select"] {
+  color: #777777;
+}
+.select2-container .select2-selection .select2-search {
+  margin-left: -15px;
+}
+.select2-container .select2-selection .select2-search .select2-search__field {
+  cursor: pointer;
+  position: absolute;
+  margin: 0;
+  padding-top: 5px;
+  height: auto;
+  font-family: "Urbanist", sans-serif;
+}
+.select2-container .select2-selection .select2-search .select2-search__field:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+.select2-container .select2-selection li.select2-search {
+  margin: 0;
+}
+.select2-container .select2-selection .select2-selection__clear {
+  margin-right: 30px;
+}
+.select2-container .select2-selection .select2-selection__placeholder {
+  color: #777777;
+}
+.select2-container .select2-selection.select2-selection--multiple {
+  padding: 5px 20px;
+  cursor: pointer;
+  min-height: 39px;
+}
+.select2-container .select2-selection.select2-selection--multiple .select2-selection__rendered {
+  padding-left: 0;
+}
+.select2-container .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+  display: inline-block;
+  width: auto;
+  margin: 5px 10px 5px 0;
+  border-radius: 0;
+  background-color: #E4E8ED;
+  border: none;
+}
+.select2-container .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove {
+  border: none;
+}
+.select2-container .select2-selection.select2-selection--multiple::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+}
+.select2-container .select2-selection.select2-selection--multiple .select2-selection__choice__remove {
+  font-weight: normal;
+}
+.select2-container .select2-selection.select2-selection--single {
+  padding: 10px 20px;
+}
+.select2-container .select2-selection.select2-selection--single .select2-selection__rendered {
+  padding: 0;
+  line-height: normal;
+}
+.select2-container .select2-selection.select2-selection--single::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://fujifilm-x.com/global/special/imaging-solution/assets/images/common/mrk_down.png");
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 15px;
+  top: 8px;
+}
+.select2-container .select2-dropdown {
+  color: #000;
+  border-radius: 0;
+  border: none;
+  text-align: left;
+}
+.select2-container .select2-dropdown .select2-results__option {
+  font-family: "Urbanist", sans-serif;
+  font-size: 14px;
+}
+.select2-container .select2-dropdown .select2-results__option--highlighted,
+.select2-container .select2-dropdown .select2-results__option--selected {
+  color: #000;
+  background-color: #E4E8ED;
+}
+.select2-container .select2-selection__arrow b {
+  display: none;
+}
+.select2-container.select2-container--open .select2-selection--multiple::after,
+.select2-container.select2-container--open .select2-selection--single::after {
+  transform: rotate(180deg);
+}
+.select2-container .select2-results .select2-results__options {
+  max-height: 216px;
+  max-height: 216px;
+  border: 1px solid #E4E8ED;
+  border-width: 0 1px 1px;
+}
+
+/* /styles added for select2 multiselects */
+@media all and (max-width: 700px) {
+  #page-wrap .ppat-form-label {
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  #page-wrap .ppat-field-feedback-msg {
+    bottom: -16px;
+    text-align: left;
+  }
+  #page-wrap .ppat-form-row {
+    display: block;
+  }
+  #page-wrap .ppat-form-row.ppat-form-row-state_can.show, #page-wrap .ppat-form-row.ppat-form-row-state_mex.show, #page-wrap .ppat-form-row.ppat-form-row-state_usa.show {
+    display: block !important;
+  }
+  #page-wrap .ppat-form-row[class*=_other].show {
+    display: block !important;
+  }
+  #page-wrap .ppat-form-row .ppat-field-feedback-msg {
+    bottom: -16px;
+    text-align: left;
+  }
+  #page-wrap .ppat-field-feedback-msg-cf-upload {
+    bottom: 6px;
+    text-align: left;
+  }
+  #page-wrap .ppat_sp {
+    margin: 0 0 3px 0 !important;
+  }
+}
+
+/*# sourceMappingURL=form.css.map */
